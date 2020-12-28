@@ -383,3 +383,133 @@ Do bài này làm mình dỗi nên mình viết ngắn gọn }:<
 Mình `strings level1` để xem thử thì thấy 1 link drive.google, và vào thì tải về đc 1 file `*.dat`  
 và khi `grep -a Christ *.dat` thì mình đã ra được flag  
 Flag: ChristCTF{DanG_COng_San_VIETNAM_Mu0n_NAm}
+
+## Programming
+### 1. Ez 
+![ez](picture/ez.png)
+
+Khi kết nối đến server mình thấy bài có yêu cầu đó là khi có `merry` thì ta phải nhập `christmas` và đối với `happy` là `new year`  
+Mình cũng thử độ chai mặt của mình khi ngồi nhập nhưng có vẻ là cái này trâu hơn r `.__.`  
+```
+b4n4n4 in ~ λ nc 103.27.236.121 12345
+ 
+Let's play a small game to get the flag
+I say 'merry', you say 'christmas'
+I say 'happy', you say 'new year'
+Let's get it..!! 
+#######################################
+
+merry
+```
+và khi mình nhập sai thì có 1 đoạn khá thú vị 
+```
+b4n4n4 in ~ λ nc 103.27.236.121 12345
+ 
+Let's play a small game to get the flag
+I say 'merry', you say 'christmas'
+I say 'happy', you say 'new year'
+Let's get it..!! 
+#######################################
+
+merry
+b4n4n4h4nds0m3
+Read the instructions carefully, and learn socket programming to solve this challenge
+
+```
+Mình không biết chút gì về socket python cả `.___.` mà từ xưa đã có câu 
+```
+Học hành thì ấm vào thân
+Đi ngủ thì ấm từ chân đến đầu
+```
+À à lạc đề :>> Thực ra cái gì không biết thì học thôi :>> Sau 1 hồi đọc về socket python và 1 hồi nữa để code và fix bug mình đã hoàn thành em code có khả năng "đấm nhau tay đôi" với bài này :v
+```
+import socket
+
+HOST = '103.27.236.121'; PORT = 12345
+server_address = (HOST, PORT)
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+	s.connect(server_address)
+	data = s.recv(1024).decode("utf-8").split("\n")
+	txt = ["new year\n", "christmas\n"]
+	if data[-2]=="merry":
+		s.send(txt[1].encode())
+	else:
+		s.send(txt[0].encode())
+	while True:
+		x=s.recv(1024)
+		print(x)
+		if x==b'': 
+			break
+		if (x==b'\nmerry\n'):
+			s.send(txt[1].encode())
+		else:
+			s.send(txt[0].encode())
+```
+và đây là kết quả sau 1 hồi "đấm nhau" :>>
+```
+b4n4n4 in ~/Downloads λ py ez.py
+b'\nhappy\n'
+b'\nmerry\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nmerry\n'
+b'\nhappy\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nmerry\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nmerry\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nmerry\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nmerry\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nhappy\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nmerry\n'
+b'\nhappy\n'
+b'\nmerry\n'
+b"Peace of cake, isn't it!?\nHere you go: \nChristCTF{__Weldone____0xFEEDFACE}\n"
+b''
+b4n4n4 in ~/Downloads λ 
+
+```
+Dăm ba = )))))))))))  
+Flag: ChristCTF{__Weldone____0xFEEDFACE}
+
+### 2. !Freedom 
+![free-dom](picture/free-dom.png)
+
+Khi kết nối vào server mình đã nhận được cái này :v 
+```
+
+```
