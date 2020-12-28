@@ -511,5 +511,52 @@ Flag: ChristCTF{__Weldone____0xFEEDFACE}
 
 Khi kết nối vào server mình đã nhận được cái này :v 
 ```
+b4n4n4 in ~/Data/ChristCTF_wu_2020 on main λ nc 23.251.159.213 43335
+Baka oniii-chan, can u help me to do math ?
+Then u can do anything with me :>
+7693 trừ 6417 bằng ?
 
 ```
+À thì :| ... mình cũng không biết nói gì hơn :v nhưng có vẻ là làm hết đống phép tính thì có thể qua đc chall :>> mình đã thử connect lại vài lần xem có gì khác hay không và mình thấy là có đủ cả `cộng trừ nhân chia` và 1 điều nữa là phép chia chỉ lấy kết quả là phần nguyên :>>
+Sau bài `Ez` mình đã có thêm kiến thức để có thể code ra solve của bài này nhưng quả bug tùm lum vẫn làm mình trakmcakm. Và thành quả cuối cùng :v 
+```
+import socket
+
+HOST = '23.251.159.213'  
+PORT = 43335
+server_address = (HOST, PORT)
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+	s.connect(server_address)
+	while True:
+		data = s.recv(1024).decode("utf-8").split("\n")
+		print(data[-2])
+		xxx=data[-2].split()
+		operations={"chia":int(xxx[0])//int(xxx[2]),"nhân":int(xxx[0])*int(xxx[2]),"cộng":int(xxx[0])+int(xxx[2]),"trừ":int(xxx[0])-int(xxx[2])}
+		if xxx[1] in operations:
+			senddata=str(operations[xxx[1]])+"\n"
+		else:
+			print(data)
+			break
+		print(senddata)
+		s.send(senddata.encode())
+		
+```
+Oi khong trẻ em không nên nhìn thấy cái này :((((
+```
+7406 trừ 4327 bằng ?
+3079
+
+6969 trừ 2063 bằng ?
+4906
+
+3789 chia 4483 bằng ?
+0
+
+5930 nhân 1027 bằng ?
+6090110
+
+your jail name is: ChristCTF{ez_like_a_script_kiddie}
+['ohh onii-chan so coollllll <3, next is question 1001', 'yeahhh, i done my homework', 'a-re....a-re... are e e e onii-chan, what are u doing? yamete-eeeeeeeee', 'FBI coming up, raise your hands nowwwww !', 'your jail name is: ChristCTF{ez_like_a_script_kiddie}', '']
+```
+Flag: ChristCTF{ez_like_a_script_kiddie}
