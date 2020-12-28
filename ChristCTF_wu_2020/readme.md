@@ -2,7 +2,7 @@
 
 ## Miscs
 ### 1. Discord channel
-![discord-channel](picute/discord-channel.png)
+![discord-channel](picture/discord-channel.png)
 
 Vào kênh discord [ChristCTF](https://discord.gg/Rgj5VVpWf7) và lấy flag tại đầu kênh `Chém gió`.
 
