@@ -7,4 +7,4 @@ Vào kênh discord [ChristCTF](https://discord.gg/Rgj5VVpWf7) và lấy flag t�
 Flag: ChristCTF{contactusifyouneed}
 
 ### 2. Index 
-Ta có thể tìm thấy flag tại trang chủ của web ![index](ChristCTF_wu_2020/picture/index.png)
+Ta có thể tìm thấy flag tại trang chủ của web ![index](picture/index.png)
