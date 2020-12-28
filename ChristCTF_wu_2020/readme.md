@@ -21,7 +21,7 @@ Flag: ChristCTF{Welc0me_to_PIS}
 
 ### 3. Pha ke Vi Em
 ![fakevm](picture/fakevm.png)
-
+ 
 Khi kết nối vào link mình được dẫn tới 1 ubuntu server:
 
 ```
