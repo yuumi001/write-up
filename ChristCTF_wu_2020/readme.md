@@ -560,3 +560,99 @@ your jail name is: ChristCTF{ez_like_a_script_kiddie}
 ['ohh onii-chan so coollllll <3, next is question 1001', 'yeahhh, i done my homework', 'a-re....a-re... are e e e onii-chan, what are u doing? yamete-eeeeeeeee', 'FBI coming up, raise your hands nowwwww !', 'your jail name is: ChristCTF{ez_like_a_script_kiddie}', '']
 ```
 Flag: ChristCTF{ez_like_a_script_kiddie}
+
+### 3. Cây thông noel 
+![noeltree](picture/noeltree.png)
+
+Well, nhìn cũng bắt mắt màu mè đấy chứ = ))) (ở terminal mới thấy được :v) đó là cảm nghĩ đầu tiên khi mình nhìn vào bài này :v 
+```
+b4n4n4 in ~/Downloads λ nc 103.27.236.121 13380 
+Merry Christmas and Happy New Year!!
+ 
+To prepare for X-Mas, the Json family has saved enough money to buy a christmas tree for decorations.
+But everyone can not decide which one to buy. Because all the price tags got disappeared somehow.
+The saler said that the price of a tree depends on where he hang the jingle bells, and how many they are.
+Note that the bell is '0', and the leaf is '*'
+There's only one small tree left:
+ 
+            *
+           OO*
+          O*O** 
+         *O*O***
+           |||
+        #########
+ 
+        ---------
+        |< 41$ >|
+        ---------
+Can you help us to recover all the price tags? <3
+I will pick the tree randomly.
+Pleaseeee be quick, there's only 60 seconds left!!!!
+Json Ryh, my son, gonna cry like hell if there's no christmas tree this year.
+ 
+Type 'START' to begin:
+```
+Bài chỉ cho 1 ví dụ nho nhỏ như này nhưng quy luật của nó khá dễ :v Giá tiền sẽ bằng tổng vị trí của các kí tự `O` cộng lại, như ví dụ mẫu sẽ là: `2+3+5+7+11+13=41` và khi bấm `START` mình đã trakmcakm sương sương nên mình quyết định lôi đống data đấy về để xử lý từng chút một.  
+Nhưng bài này có 1 đặc điểm đó là nó dùng ANSI để có thể tạo màu cho terminal @@ điều đấy khiến cho việc lấy 1024bytes về để đọc thì cũng vẫn gọi là tù túng = )))
+Vậy nên mình đã lên tìm cách để sử lý vụ này đó là dùng 1 vòng while và nhận đến khi nào không nhận được dữ liệu nữa :v 
+Sau khi có được đống data mình đã xem xét 1 chút đó là những thứ mà mình cần là `*` và `O` không nằm trong đống mã ANSI kia = )) vậy nên khi lọc ra sẽ không có thiếu xót. Vậy là mình đã dễ dàng tách được riêng `*` và `O` thành 1 chuỗi dài.  
+Việc còn lại là điếm và tính tổng thôi = )))))
+Mình quăng nó vào while để cho nó auto solve = ))))
+```
+import socket, time
+with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as p:
+	p.connect(('103.27.236.121',13380))
+	p.recv(1024).decode()
+	p.send("START\n".encode())
+	while True:
+		buff=b""
+		time.sleep(0.1)
+		while True:
+			data=p.recv(1024)
+			buff+=data	
+			if b'ChristCTF{' in data: 
+				print(buff)
+				exit(0)
+			if b'= ' in data:	break
+		x={"*":"*","O":"O"}
+		d=[''.join(x[i]) for i in buff.decode() if i in x]
+		s=str(sum([i for i in range(1,len(d)+1) if d[i-1]=="O"]))+"\n"
+		p.send(s.encode())
+		# print(s) # thich nhin hay hay thi uncomment dong nay :v
+```
+Kết quả:
+```
+b4n4n4 in ~/Downloads λ py noeltree.py
+13887
+124211
+183706
+13887
+23592
+3831
+23592
+13887
+261222
+124211
+9523
+1593
+7982
+148827
+89672
+13887
+11599
+1060
+2127
+328
+2127
+328
+89672
+42468
+261222
+55837
+3831
+124211
+183706
+41
+b'Thankyou, here our present:\nChristCTF{G0ddddd_Ble$$$$$_Y0u_____2510}\nBest wishes!!\n'
+```
+Flag: ChristCTF{G0ddddd_Ble$$$$$_Y0u_____2510}
