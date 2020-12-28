@@ -656,3 +656,171 @@ b4n4n4 in ~/Downloads λ py noeltree.py
 b'Thankyou, here our present:\nChristCTF{G0ddddd_Ble$$$$$_Y0u_____2510}\nBest wishes!!\n'
 ```
 Flag: ChristCTF{G0ddddd_Ble$$$$$_Y0u_____2510}
+
+## Forensic 
+### 1. Noob
+![noob](picture/noob.png)
+Chall này rất dễ quăng vào bất kì tool nào dùng để đọc data đều có thể kiếm được flag:
+```
+b4n4n4 in ~/Downloads λ hexdump -C  welcome.jpg | grep C.h -a5
+00000850  00 00 00 00 00 00 00 00  00 00 00 00 00 01 ea 1c  |................|
+00000860  00 07 00 00 08 0c 00 00  08 50 00 00 00 00 1c ea  |.........P......|
+00000870  00 00 00 08 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+00000880  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+*
+00001070  00 00 00 00 00 00 00 00  00 00 00 00 43 00 68 00  |............C.h.|
+00001080  72 00 69 00 73 00 74 00  43 00 54 00 46 00 7b 00  |r.i.s.t.C.T.F.{.|
+00001090  74 00 68 00 65 00 5f 00  67 00 69 00 6f 00 69 00  |t.h.e._.g.i.o.i.|
+000010a0  5f 00 66 00 6f 00 72 00  65 00 6e 00 73 00 69 00  |_.f.o.r.e.n.s.i.|
+000010b0  63 00 5f 00 6b 00 68 00  6f 00 6e 00 67 00 5f 00  |c._.k.h.o.n.g._.|
+000010c0  64 00 65 00 5f 00 64 00  61 00 75 00 7d 00 00 00  |d.e._.d.a.u.}...|
+b4n4n4 in ~/Downloads λ 
+```
+Flag: ChristCTF{the_gioi_forensic_khong_de_dau}
+
+### 2. Blue christmas
+![blue](picture/blue.png)
+Huhmmmm mình đã nhận được 1 file data???
+```
+b4n4n4 in ~/Downloads λ file blue-christmas_-_1 
+blue-christmas_-_1: data
+b4n4n4 in ~/Downloads λ 
+```
+Có vẻ không đơn giản chỉ là thế:
+```
+‰ENN
+
+���
+IHDF�����Ð���Ï}ÝV���sRGB�®Îé���gAMA��±üa���	pHYs��ò��òÎ{Þ���tEXtTitle�PDF CreatorA^¼(���tEXtAuthor�PDF Tools AGÏw0�
+```
+Nhận định ngay của mình đó là `.___.` đây là 1 file ảnh PNG đã bị chỉnh sửa, mình đã sửa tay lại phần IHDR chunk để sau đó sử dụng tool `PRCT` để fix tấm ảnh:
+![blue01.png](picture/blue01.png)
+Flag: ChristCTF{magic_string_._._1337_._._}
+
+### 3. Nhỏ ơi
+![nho-oi](picture/nho-oi.png)
+Khi quăng bài này vào stegsolve mình đã tìm thấy flag tại red plane 0
+![nho-oi](picture/nho-oi01.png)
+Flag: ChristCTF{Tam_biet_Tai_cho_dien}
+
+### 4. Tree Tree Tree 
+![tree](picture/tree.png)
+Khi quăng vào stegsolve và check qua các trang thì mình phát hiện ở góc có 1 số điểm màu khá dị biệt vậy nên mình đã extract data của đống đấy ra thì walla flag ngay đầu luôn :v 
+![tree](picture/tree01.png)
+Flag: ChristCTF{Haha_You_get_it_mlem}
+
+## Crypto
+
+### 1. OSASS
+![osass](picture/osass.png)
+Dân chơi nhìn phát biết ngay đây là brainfuck, super ezz = ))))
+Mình đã tìm ngay 1 tool trên mạng để decode brainfuck = ))))
+
+Flag: ChristCTF{uvuvwevwevweonyetenyevweugwemubwemossas}
+
+### 2. Kt-gy
+![kt-gy](picture/kt-gy.png)
+Câu này dùng đến trang web để giải mã khá thông dụng `kt.gy`. Khi pass dòng mật mã vào ASCII đầu tiên ta sẽ đảo ngược chuỗi này trước (ở mục REV của kt.gy), sau đó pass lại 1 lần nữa vào ASCII liền tìm đc flag tại ROT6.
+
+Flag: ChristCTF{dam_ba_cai_crypto_de_ec}
+
+### 3. MONKEY
+![monkey](picture/monkey.png)  
+[dscript](http://dscript.org/dscript.pdf)
+
+Flag: ChristCTF{TRAOTRONYEUTHUONG}
+
+## Web
+
+### 1. web-01
+```
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Merry Christmas</title>
+</head>
+<body style="background-image: url(./asset/noel1.jpg);background-repeat: no-repeat;background-attachment: fixed; background-size: 100% 100%;" >
+	<div  class="" style="width:500px; margin: 0 auto; float: center;  ">
+		
+		
+
+
+		
+			<div style="margin-top: 200px; ">
+				
+				<div style="height: 60px"><a  onmouseover="big()" onmouseout="normal()" id=demo   style="color: white; font-size: 40px;text-decoration: none" href="./?page=gifts">Your Gifts!</a></div>				<br>
+				<br>
+				<div><a onmouseover="big1()" onmouseout="normal1()" id=demo1  style="color: white; font-size: 40px;text-decoration: none" href="./?page=upload">Upload!</a></div>
+
+			</div>
+
+
+			<script>
+			function big() {
+			  document.getElementById("demo").style.fontSize = "50px";
+			  document.getElementById("demo").style.transition = "all 0.3s";
+			}
+			function normal() {
+			  document.getElementById("demo").style.fontSize = "40px";
+			  document.getElementById("demo").style.transition = "all 0.5s";
+			}
+			function big1() {
+			  document.getElementById("demo1").style.fontSize = "50px";
+			  document.getElementById("demo1").style.transition = "all 0.3s";
+			}
+			function normal1() {
+			  document.getElementById("demo1").style.fontSize = "40px";
+			  document.getElementById("demo1").style.transition = "all 0.5s";
+			}
+
+			</script>
+
+
+	
+
+	
+
+
+</div>
+<!-- Gift1: ChristCTF{W31(0M3!} -->
+</body>
+</html>
+```
+Flag của câu này ở ngay source code của trang :v 
+
+Flag: ChristCTF{W31(0M3!}
+
+### 2. Web-02
+
+Khi vào phần Your Gifts ta thấy trên quả chuối có dòng `GiFt2.php` mình đã thay lên trên thanh địa chỉ và nhận được 
+```
+ style='color: white'>ITS JUST KIDDING :))
+<?php
+ob_start();
+if (!defined('check_access')) 
+{
+  header("Location: ./?page=home");
+  die("ÔH NÂU!!");
+  ob_end_flush();
+}
+echo "<h1> style='color: white'>ITS JUST KIDDING :)) </h1>";
+$flag="christCTF{*******}" ; 
+
+if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['password']) && !empty($_POST['password'])){
+        $password=$_POST("password");
+        $username=$_POST("username");
+        if($username==="admin"){
+            if($password==="Q2hyaXN0Q1RGe2shRGQhbkchfQ==" && $username!=="admin" ){
+                    echo $flag;
+            }    
+        }
+}
+else {highlight_file(__FILE__);}        
+?> 
+```
+
+Decode password `Q2hyaXN0Q1RGe2shRGQhbkchfQ==` ta có flag
+
+Flag: ChristCTF{k!Dd!nG!}
