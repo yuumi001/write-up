@@ -343,7 +343,7 @@ Ez :>>>
 Flag: ChristCTF{M3rry_Chr1stmas!}
 
 ### 4. theRoom 
-![the-room](picture/the-room.png)
+![the-room](picture/the-room.png)  
 Bài này đại khái là mình sẽ phải nhập password hợp lý aka Flag thì mới đúng và tìm trong file bằng `IDA` mình thấy có 1 hàm `checkPass()` và mình đã viết hàm để decrypt đoạn này và lấy đc flag = )))))))
 ```
 #include <bits/stdc++.h>
@@ -373,7 +373,7 @@ int main() {
     cout << temp << endl;
     return 0;
 }
-```
+```  
 Flag: ChristCTF{Y0u_F0und_Fl4G_!_0xda6vr81o9}
 
 ### 5. Game
