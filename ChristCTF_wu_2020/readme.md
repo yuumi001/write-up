@@ -149,7 +149,7 @@ b4n4n4 in ~/Downloads λ
 Flag: ChristCTF{w311c0m3_t0_r3v3sr3}
 
 ### 2. Waiting to new year
-![Waiting to new year](picture/waiting.png)
+![Waiting to new year](picture/waiting.png)  
 Khi giải nén file `Waiting.zip` ta nhận được file `Waiting` định dạng ELF và khi chạy thử :v
 ```
 b4n4n4 in ~/Downloads λ ./Waiting
@@ -236,7 +236,7 @@ Flag is: ChristCTF{Wa1t1ng_t0_n3w_y3ar}%
 Flag: ChristCTF{Wa1t1ng_t0_n3w_y3ar}
 
 ### 3. Merry Christmas
-![merry-christmas](picture/merry-christmas.png)
+![merry-christmas](picture/merry-christmas.png)  
 Khi giải nén `MerryChristmas.zip` mình nhận đc 1 file ELF và khi chạy:
 ```
 b4n4n4 in ~/Downloads λ ./MerryChristmas 
@@ -386,7 +386,7 @@ Flag: ChristCTF{DanG_COng_San_VIETNAM_Mu0n_NAm}
 
 ## Programming
 ### 1. Ez 
-![ez](picture/ez.png)
+![ez](picture/ez.png)  
 
 Khi kết nối đến server mình thấy bài có yêu cầu đó là khi có `merry` thì ta phải nhập `christmas` và đối với `happy` là `new year`  
 Mình cũng thử độ chai mặt của mình khi ngồi nhập nhưng có vẻ là cái này trâu hơn r `.__.`  
@@ -507,7 +507,7 @@ Dăm ba = )))))))))))
 Flag: ChristCTF{__Weldone____0xFEEDFACE}
 
 ### 2. !Freedom 
-![free-dom](picture/free-dom.png)
+![free-dom](picture/free-dom.png)  
 
 Khi kết nối vào server mình đã nhận được cái này :v 
 ```
@@ -562,7 +562,7 @@ your jail name is: ChristCTF{ez_like_a_script_kiddie}
 Flag: ChristCTF{ez_like_a_script_kiddie}
 
 ### 3. Cây thông noel 
-![noeltree](picture/noeltree.png)
+![noeltree](picture/noeltree.png)  
 
 Well, nhìn cũng bắt mắt màu mè đấy chứ = ))) (ở terminal mới thấy được :v) đó là cảm nghĩ đầu tiên khi mình nhìn vào bài này :v 
 ```
@@ -659,7 +659,7 @@ Flag: ChristCTF{G0ddddd_Ble$$$$$_Y0u_____2510}
 
 ## Forensic 
 ### 1. Noob
-![noob](picture/noob.png)
+![noob](picture/noob.png)  
 Chall này rất dễ quăng vào bất kì tool nào dùng để đọc data đều có thể kiếm được flag:
 ```
 b4n4n4 in ~/Downloads λ hexdump -C  welcome.jpg | grep C.h -a5
@@ -679,7 +679,7 @@ b4n4n4 in ~/Downloads λ
 Flag: ChristCTF{the_gioi_forensic_khong_de_dau}
 
 ### 2. Blue christmas
-![blue](picture/blue.png)
+![blue](picture/blue.png)  
 Huhmmmm mình đã nhận được 1 file data???
 ```
 b4n4n4 in ~/Downloads λ file blue-christmas_-_1 
@@ -694,39 +694,40 @@ Có vẻ không đơn giản chỉ là thế:
 IHDF�����Ð���Ï}ÝV���sRGB�®Îé���gAMA��±üa���	pHYs��ò��òÎ{Þ���tEXtTitle�PDF CreatorA^¼(���tEXtAuthor�PDF Tools AGÏw0�
 ```
 Nhận định ngay của mình đó là `.___.` đây là 1 file ảnh PNG đã bị chỉnh sửa, mình đã sửa tay lại phần IHDR chunk để sau đó sử dụng tool `PRCT` để fix tấm ảnh:
-![blue01.png](picture/blue01.png)
+![blue01.png](picture/blue01.png)  
 Flag: ChristCTF{magic_string_._._1337_._._}
 
 ### 3. Nhỏ ơi
-![nho-oi](picture/nho-oi.png)
+![nho-oi](picture/nho-oi.png)  
 Khi quăng bài này vào stegsolve mình đã tìm thấy flag tại red plane 0
-![nho-oi](picture/nho-oi01.png)
+![nho-oi](picture/nho-oi01.png)  
 Flag: ChristCTF{Tam_biet_Tai_cho_dien}
 
 ### 4. Tree Tree Tree 
-![tree](picture/tree.png)
+![tree](picture/tree.png)  
 Khi quăng vào stegsolve và check qua các trang thì mình phát hiện ở góc có 1 số điểm màu khá dị biệt vậy nên mình đã extract data của đống đấy ra thì walla flag ngay đầu luôn :v 
-![tree](picture/tree01.png)
+![tree](picture/tree01.png)  
 Flag: ChristCTF{Haha_You_get_it_mlem}
 
 ## Crypto
 
 ### 1. OSASS
-![osass](picture/osass.png)
+![osass](picture/osass.png)  
 Dân chơi nhìn phát biết ngay đây là brainfuck, super ezz = ))))
 Mình đã tìm ngay 1 tool trên mạng để decode brainfuck = ))))
 
 Flag: ChristCTF{uvuvwevwevweonyetenyevweugwemubwemossas}
 
 ### 2. Kt-gy
-![kt-gy](picture/kt-gy.png)
+![kt-gy](picture/kt-gy.png)  
 Câu này dùng đến trang web để giải mã khá thông dụng `kt.gy`. Khi pass dòng mật mã vào ASCII đầu tiên ta sẽ đảo ngược chuỗi này trước (ở mục REV của kt.gy), sau đó pass lại 1 lần nữa vào ASCII liền tìm đc flag tại ROT6.
 
 Flag: ChristCTF{dam_ba_cai_crypto_de_ec}
 
 ### 3. MONKEY
 ![monkey](picture/monkey.png)  
-[dscript](http://dscript.org/dscript.pdf)
+[dscript](http://dscript.org/dscript.pdf)  
+*Khá trakmcakm với bài này @@
 
 Flag: ChristCTF{TRAOTRONYEUTHUONG}
 
