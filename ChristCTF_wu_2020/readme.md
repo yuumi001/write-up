@@ -705,7 +705,7 @@ Flag: ChristCTF{Tam_biet_Tai_cho_dien}
 
 ### 4. Tree Tree Tree 
 ![tree](picture/tree.png)  
-Khi quăng vào stegsolve và check qua các trang thì mình phát hiện ở góc có 1 số điểm màu khá dị biệt vậy nên mình đã extract data của đống đấy ra thì walla flag ngay đầu luôn :v 
+Khi quăng vào stegsolve và check qua các trang thì mình phát hiện ở góc có 1 số điểm màu khá dị biệt vậy nên mình đã extract data của đống đấy ra thì walla flag ngay đầu luôn :v   
 ![tree](picture/tree01.png)  
 Flag: ChristCTF{Haha_You_get_it_mlem}
 
