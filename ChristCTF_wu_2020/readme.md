@@ -729,7 +729,7 @@ Flag: ChristCTF{dam_ba_cai_crypto_de_ec}
 
 ### 3. MONKEY
 ![monkey](picture/monkey.png)  
-[dscript](http://dscript.org/dscript.pdf)  
+===>> Đây là cách giải: [dscript](http://dscript.org/dscript.pdf)  
 *Khá trakmcakm với bài này @@
 
 Flag: ChristCTF{TRAOTRONYEUTHUONG}
