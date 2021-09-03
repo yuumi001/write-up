@@ -1,7 +1,10 @@
 # PWN WRITE UP
 ## 1. Pray for flag
-<br>
+
+
 Đầu tiên mình kiểm tra qua file bằng checksec 
+
+
 ```
 [*] '/home/iluvinn/pwn/svattt/pray_for_flag/pwn1'
     Arch:     i386-32-little
@@ -12,7 +15,7 @@
 ```
 Thấy có canary và nx enabled nên hướng làm có thể sẽ sử dụng format string. 
 <br>
-Chạy thử để xem file hoạt động ra sao
+Chạy thử để xem file hoạt động ra sao <br>
 ```
 ## TEST 1 ##
 iluvinn in ~/pwn/svattt/pray_for_flag λ ./pwn1
