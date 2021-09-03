@@ -1,4 +1,4 @@
-# PWN WRITE UP
+# PWN WRITE UP - Vòng khởi động svattt 2021
 ## 1. Pray for flag
 
 
