@@ -1,0 +1,115 @@
+__int64 __fastcall main(int a1, char **a2, char **a3)
+{
+  _DWORD *v4; // [rsp+18h] [rbp-78h]
+  setbuf(stdout, 0LL);
+  v4 = malloc(8uLL);
+  *v4 = 68;
+  v4[1] = 85;
+  printf("secret[0] is %x\n", v4);
+  printf("secret[1] is %x\n", v4 + 1);
+  func1((__int64)v4);
+  puts("The End.....Really?");
+  return 0LL;
+}
+///////////////////////////////////////////////
+unsigned func1(__int64 a1)
+{
+  char s[24]; // [rsp+10h] [rbp-20h] BYREF
+  unsigned __int64 v3; // [rsp+28h] [rbp-8h]
+
+  v3 = __readfsqword(0x28u);
+  puts("What should your character's name be:");
+  _isoc99_scanf("%s", s);                          //AAA
+  if ( strlen(s) <= 0xC ) //12
+  {
+    puts("Creating a new player.");
+    func2();
+    func3();
+    func4((_DWORD *)a1);
+  }
+  else
+  {
+    puts("Hei! What's up!");
+  }
+  return __readfsqword(0x28u) ^ v3;
+}
+/////////////////////////////////////////////////
+unsigned __int64 func2()
+{
+  char s1[8]; // [rsp+0h] [rbp-10h] BYREF
+  unsigned __int64 v2; // [rsp+8h] [rbp-8h]
+
+  v2 = __readfsqword(0x28u);
+  while ( 1 )
+  {
+    _isoc99_scanf("%s", s1);
+    if ( !strcmp(s1, "east") || !strcmp(s1, "east") )  //EAST
+      break;
+  }
+  if ( strcmp(s1, "east") )
+  {
+    if ( !strcmp(s1, "up") )
+      func5();
+    exit(0);
+  }
+  return __readfsqword(0x28u) ^ v2;
+}
+///////////////////////////////////////////////
+void  func5()
+{
+  unsigned int v0; // eax
+  int v1; // [rsp+0h] [rbp-10h] BYREF
+  int v2; // [rsp+4h] [rbp-Ch]
+  unsigned __int64 v3; // [rsp+8h] [rbp-8h]
+
+  v3 = __readfsqword(0x28u);
+  puts("where you will go?!left(0) or right(1)?!:");
+  v0 = time(0LL);
+  srand(v0);
+  while ( 1 )
+  {
+    v2 = rand() % 2;
+    _isoc99_scanf("%d", &v1);
+    if ( v1 != v2 )
+      break;
+    puts("where you will go?!left(0) or right(1)?!:"); //3
+  }
+  exit(0);
+}
+///////////////////////////////////////////////////
+unsigned func3()
+{
+  int v1; // [rsp+4h] [rbp-7Ch] BYREF
+  __int64 v2; // [rsp+8h] [rbp-78h] BYREF
+  char format[104]; // [rsp+10h] [rbp-70h] BYREF
+  unsigned __int64 v4; // [rsp+78h] [rbp-8h]
+  v4 = __readfsqword(0x28u);
+  v2 = 0LL;
+  _isoc99_scanf("%d", &v1);
+  if ( v1 == 1 )
+  {
+    puts("A voice heard in your mind");
+    puts("'Give me an address'");
+    _isoc99_scanf("%ld", &v2);
+    puts("And, you wish is:");
+    _isoc99_scanf("%s", format);
+    puts("Your wish is");
+    printf(format);
+    puts("I hear it, I hear it....");
+  }
+  return __readfsqword(0x28u) ^ v4;
+}
+/////////////////////////////////////////////////
+unsigned func4(_DWORD *a1)
+{
+  void *v1; // rsi
+  unsigned __int64 v3; // [rsp+18h] [rbp-8h]
+  v3 = __readfsqword(0x28u);
+  if ( *a1 == a1[1] )
+  {
+    v1 = mmap(0LL, 0x1000uLL, 7, 33, -1, 0LL);
+    read(0, v1, 0x100uLL);
+    ((void (__fastcall *)(_QWORD))v1)(0LL);
+  }
+  return __readfsqword(0x28u) ^ v3;
+}
