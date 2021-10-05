@@ -1,0 +1,26 @@
+0000000000401160 <checksum>:
+
+401160:	55                   	push   rbp
+401161:	48 89 e5             	mov    rbp,rsp
+401164:	48 89 7d f8          	mov    QWORD PTR [rbp-0x8],rdi
+401168:	89 75 f4             	mov    DWORD PTR [rbp-0xc],esi
+40116b:	c7 45 f0 00 00 00 00 	mov    DWORD PTR [rbp-0x10],0x0
+401172:	c7 45 ec 00 00 00 00 	mov    DWORD PTR [rbp-0x14],0x0
+401179:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+40117c:	3b 45 f4             	cmp    eax,DWORD PTR [rbp-0xc]
+40117f:	0f 8d 26 00 00 00    	jge    4011ab <checksum+0x4b>
+401185:	48 8b 45 f8          	mov    rax,QWORD PTR [rbp-0x8]
+401189:	48 63 4d ec          	movsxd rcx,DWORD PTR [rbp-0x14]
+40118d:	0f be 14 08          	movsx  edx,BYTE PTR [rax+rcx*1]
+401191:	6b d2 03             	imul   edx,edx,0x3
+401194:	c1 fa 01             	sar    edx,0x1
+401197:	03 55 f0             	add    edx,DWORD PTR [rbp-0x10]
+40119a:	89 55 f0             	mov    DWORD PTR [rbp-0x10],edx
+40119d:	8b 45 ec             	mov    eax,DWORD PTR [rbp-0x14]
+4011a0:	83 c0 01             	add    eax,0x1
+4011a3:	89 45 ec             	mov    DWORD PTR [rbp-0x14],eax
+4011a6:	e9 ce ff ff ff       	jmp    401179 <checksum+0x19>
+4011ab:	8b 45 f0             	mov    eax,DWORD PTR [rbp-0x10]
+4011ae:	5d                   	pop    rbp
+4011af:	c3                   	ret
+

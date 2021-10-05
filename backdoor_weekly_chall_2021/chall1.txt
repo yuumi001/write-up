@@ -1,0 +1,12 @@
+0000000000401170 <some_func>:
+
+401170:	55                   	push   rbp
+401171:	48 89 e5             	mov    rbp,rsp
+401174:	89 7d fc             	mov    DWORD PTR [rbp-0x4],edi
+401177:	89 75 f8             	mov    DWORD PTR [rbp-0x8],esi
+40117a:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+40117d:	83 e8 7b             	sub    eax,0x7b
+401180:	69 4d f8 a9 00 00 00 	imul   ecx,DWORD PTR [rbp-0x8],0xa9
+401187:	01 c8                	add    eax,ecx
+401189:	5d                   	pop    rbp
+40118a:	c3                   	ret
