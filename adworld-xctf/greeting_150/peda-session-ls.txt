@@ -1,0 +1,3 @@
+break __libc_csu_init
+disable $bpnum
+
